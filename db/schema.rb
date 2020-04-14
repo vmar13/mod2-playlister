@@ -17,6 +17,12 @@ ActiveRecord::Schema.define(version: 2020_04_14_010107) do
     t.integer "user_id"
     t.integer "track_id"
     t.integer "genre_id"
+  end 
+
+  create_table "albums", force: :cascade do |t|
+    t.string "title"
+    t.integer "number_of_tracks"
+    t.date "release_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -25,6 +31,11 @@ ActiveRecord::Schema.define(version: 2020_04_14_010107) do
     t.string "name"
     t.string "album"
     t.string "artist"
+  end 
+
+  create_table "artists", force: :cascade do |t|
+    t.string "name"
+    t.string "bio"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
