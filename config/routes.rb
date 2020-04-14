@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   resources :albums
   resources :artists
-  resources :genres
   resources :tracks
   resources :playlists
   resources :users
