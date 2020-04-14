@@ -1,0 +1,19 @@
+<% if flash[:errors] %>
+<% flash[:errors].each do |error| %>
+    <p><%= error %></p>
+    <% end %>
+<% end %>
+
+<h1>Create a playlist</h1>
+
+<%= form_for @playlist do |f| %>
+    <%= f.label :title, 'Title:' %>
+    <%= f.text_field :title %><br>
+
+    <%= f.label :genre_id, 'Genre:' %>
+    <%= f.text_field :genre_id %><br>
+    <br>
+    <%= f.submit %>    
+<% end %>
+
+
