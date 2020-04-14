@@ -1,7 +1,7 @@
 class Playlist < ApplicationRecord
     belongs_to :user
-    belongs_to :addition
-    has_one :genre
+    has_many :add_songs
+    has_many :tracks, through: :add_songs
 
     # def genre_name=(name)
     #     self.genre = Genre.find_or_create_by(name: name)
