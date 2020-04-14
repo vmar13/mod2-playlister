@@ -1,0 +1,7 @@
+<h1><%= @playlist.title %></h1>
+
+<% @playlist.tracks.each do |track| %>
+    <p><% track.name %></p>
+<% end %>
+
+<%= button_to "ADD SONGS", new_add_song_path, method: :get %>
