@@ -1,0 +1,14 @@
+<% if flash[:errors] %>
+<% flash[:errors].each do |error| %>
+    <p><%= error %></p>
+    <% end %>
+<% end %>
+
+<h1>Create an account</h1>
+
+<%= form_for @user do |f| %>
+    <%= f.label :name, 'Username:' %>
+    <%= f.text_field :name %><br>
+    <br>
+    <%= f.submit %>    
+<% end %>
