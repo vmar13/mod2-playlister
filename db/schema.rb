@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_14_165921) do
+ActiveRecord::Schema.define(version: 2020_04_14_170718) do
 
   create_table "add_songs", force: :cascade do |t|
     t.integer "playlist_id"
@@ -19,15 +19,7 @@ ActiveRecord::Schema.define(version: 2020_04_14_165921) do
 
   create_table "albums", force: :cascade do |t|
     t.string "title"
-    t.integer "number_of_tracks"
     t.date "release_date"
-  end
-
-  create_table "playlists", force: :cascade do |t|
-    t.string "title"
-    t.integer "user_id"
-    t.integer "track_id"
-    t.integer "genre_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -35,6 +27,15 @@ ActiveRecord::Schema.define(version: 2020_04_14_165921) do
   create_table "artists", force: :cascade do |t|
     t.string "name"
     t.string "bio"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "playlists", force: :cascade do |t|
+    t.string "title"
+    t.integer "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "tracks", force: :cascade do |t|
@@ -45,9 +46,6 @@ ActiveRecord::Schema.define(version: 2020_04_14_165921) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "genres", force: :cascade do |t|
-    
-  end
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
