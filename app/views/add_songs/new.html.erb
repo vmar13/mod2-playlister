@@ -1,0 +1,27 @@
+<h1>Add Songs</h1>
+
+# <insert Spotify API search bar here>
+# <need ability to search for songs>
+
+# <how do we create a new add_song without creating with playlist_id and track_id ?>
+
+<%= form_tag add_songs_path, method: :get do %>
+    <%= label_tag(:q, "Search for:") %>
+    <%= text_field_tag(:q) %>
+    <%= submit_tag("Search") %>
+<% end %>
+
+
+
+<% if @results.present? %>
+  <h1>Songs Found</h1>
+  <ul>
+    <% @results.each do |song| %>
+      <li><%= song["name"] %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+   
+
+<would like to add back button specifying name of playlist>
