@@ -1,8 +1,17 @@
-<h1>This is <%= @artist.name %>'s Show Page</h1>
+<p>This is the Artist Show Page</p>
 
-<h3>My Albums: </h3>
-<ul>
-<% @artist.albums.each do |a|%>
-    <li><%= link_to  "#{a.title}", album_path(a) %></li>
+<%= link_to  "Back to Add Songs", add_songs_path %>
+
+<h1><%= @artist.name %></h1>
+
+<% @artist.genres.each do |genre| %>
+    <p><%= genre %> </p>
 <% end %>
-</ul>
+
+<img src="<%= @artist.images[0]["url"] %>" alt="A picture of the beatles" style="width:200px; height:200px;">
+
+<h3>The Beatles Albums</h3>
+    <% @artist.albums.each do |album|%>
+        <p><%= link_to  "#{album.name}", album_path(album.id) %></p>
+        <p><%= album.release_date %></p>
+    <% end %>
