@@ -7,6 +7,7 @@
  <%= submit_tag "Search", class: "btn btn-primary" %>
 <% end %>
 
+#add collection_select of playlists
 
 
 
@@ -17,16 +18,18 @@
    
   <ol>
   <% results.each do |artist|%>
-  <li><strong>Artist Name:<br>
+  <li><strong>Artist:<br>
   <%= artist.name %></strong></li>
+  <br>
     <ol>
       <% artist.albums.uniq.each do |album| %>
-        <li><strong>Album Name:<br>
+        <li><strong>Album:<br>
         <%= album.name %></strong></li>
         <ol>
           <% album.tracks.uniq.each do |track| %>
-            <li><%= track.name %></li>
+            <li><%= check_box_tag('track', 'no', true) %><%= track.name %></li>
             <% end %>
+              if 
         </ol>
       <% end %>
     </ol>
