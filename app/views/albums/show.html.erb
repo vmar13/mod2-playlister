@@ -1,8 +1,9 @@
-<%= link_to  "Back to #{@album.artists[0].name}", artist_path(@album.artists[0].id) %>
 
 <p>This is the Album Show Page</p>
 
 <h1><%= @album.name %></h1>
+
+
 
 <img src="<%= @album.images[0]["url"] %>" alt="Beatles Album Cover", style="width:200px; height:200px;">
 
@@ -10,6 +11,7 @@
     <ol>
         <% @album.tracks.each do |track|%>
             <li><%= track.name %> | <%=Time.at(track.duration_ms/1000).utc.strftime("%M:%S")%></li>
+            <%= button_to  "Add",   %>
         <% end %>
     </ol>
 

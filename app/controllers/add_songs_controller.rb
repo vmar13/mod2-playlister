@@ -5,7 +5,7 @@ class AddSongsController < ApplicationController
         #   @add_song = RSpotify::Artist.search(params[:artist_name])
         # # else
           # redirect_to add_song_path()
-        
+        @add_song = AddSong.new
     end
 
 
