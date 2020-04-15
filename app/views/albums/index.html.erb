@@ -1,1 +1,11 @@
 <h1>This is the Albums Index Page</h1>
+
+<% @albums.each do |a|%>
+    <div>Album Title: <%= a.title %></div>
+    <div>By: <%= a.artist.name %></div>
+    <ol>
+    <% a.tracks.each do |t|%>
+        <li><%= t.name %></li>
+    <% end %>
+    </ol>
+<% end %>

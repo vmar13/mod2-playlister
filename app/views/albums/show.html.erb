@@ -1,1 +1,11 @@
 <h1>This is the Album Show Page</h1>
+
+<h3>Album Title: <%= @album.title %></h3>
+<h4>By: <%= link_to  "#{@album.artist.name}", artist_path(@album.artist.id) %></h4>
+
+
+<ol>
+<% @album.tracks.each do |t|%>
+<li><%= t.name %></li>
+<% end %>
+</ol>

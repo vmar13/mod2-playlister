@@ -27,13 +27,34 @@ Artist.create(name: Faker::Music.band, bio: Faker::Lorem.paragraph)
 end
 
 20.times do
-Album.create(title: Faker::Music.album, artist_id: Artist.all.sample.id)
+    1.times do 
+        artist = Artist.all.sample.id
+        Album.create(title: Faker::Music.album, artist_id: artist)
+        Album.create(title: Faker::Music.album, artist_id: artist)
+        Album.create(title: Faker::Music.album, artist_id: artist)
+    end
 end
  
 20.times do 
-Track.create(name: Faker::Creature::Cat.name, album_id: Album.all.sample.id)
+    1.times do
+        album = Album.all.sample.id
+        Track.create(name: Faker::Creature::Cat.name, album_id: album)
+        Track.create(name: Faker::Creature::Cat.name, album_id: album)
+        Track.create(name: Faker::Creature::Cat.name, album_id: album)
+        Track.create(name: Faker::Creature::Cat.name, album_id: album)
+        Track.create(name: Faker::Creature::Cat.name, album_id: album)
+        Track.create(name: Faker::Creature::Cat.name, album_id: album)
+        Track.create(name: Faker::Creature::Cat.name, album_id: album)
+    end
 end 
 
 20.times do 
-AddSong.create(playlist_id: Playlist.all.sample.id, track_id: Track.all.sample.id)
+    1.times do
+        playlist = Playlist.all.sample.id
+        AddSong.create(playlist_id: playlist , track_id: Track.all.sample.id)
+        AddSong.create(playlist_id: playlist , track_id: Track.all.sample.id)
+        AddSong.create(playlist_id: playlist , track_id: Track.all.sample.id)
+        AddSong.create(playlist_id: playlist , track_id: Track.all.sample.id)
+        AddSong.create(playlist_id: playlist , track_id: Track.all.sample.id)
+    end
 end 

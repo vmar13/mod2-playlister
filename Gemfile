@@ -50,3 +50,5 @@ gem 'faker'
 
 # For easy reading table data in Terminal
 gem 'hirb'
+
+gem 'httparty'
