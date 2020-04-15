@@ -1,1 +1,8 @@
-<h1>This is the Artist Show Page</h1>
+<h1>This is <%= @artist.name %>'s Show Page</h1>
+
+<h3>My Albums: </h3>
+<ul>
+<% @artist.albums.each do |a|%>
+    <li><%= link_to  "#{a.title}", album_path(a) %></li>
+<% end %>
+</ul>
