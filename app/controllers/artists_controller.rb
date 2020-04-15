@@ -1,11 +1,11 @@
 class ArtistsController < ApplicationController
 
     def index
-        @artists = Artist.all
+        @artists = RSpotify::Artist.search(params[:artist_name])
     end
     
     def show
-        @artist = Artist.find(params[:id])
+        @artist = RSpotify::Artist.find(params[:id])
     end
     
 end

@@ -1,11 +1,15 @@
-<h1>This is the Album Show Page</h1>
+<%= link_to  "Back to #{@album.artists[0].name}", artist_path(@album.artists[0].id) %>
 
-<h3>Album Title: <%= @album.title %></h3>
-<h4>By: <%= link_to  "#{@album.artist.name}", artist_path(@album.artist.id) %></h4>
+<p>This is the Album Show Page</p>
 
+<h1><%= @album.name %></h1>
 
-<ol>
-<% @album.tracks.each do |t|%>
-<li><%= t.name %></li>
-<% end %>
-</ol>
+<img src="<%= @album.images[0]["url"] %>" alt="Beatles Album Cover", style="width:200px; height:200px;">
+
+<h3>Songs on this Album</h3>
+    <ol>
+        <% @album.tracks.each do |track|%>
+            <li><%= track.name %> | <%=Time.at(track.duration_ms/1000).utc.strftime("%M:%S")%></li>
+        <% end %>
+    </ol>
+

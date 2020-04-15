@@ -1,0 +1,40 @@
+
+<h1 class="page-header">Add Songs Index</h1>
+<%= form_tag add_songs_path, method: "get", html: { class: "form" } do %>
+ <div class="form-group col-xs-4">
+   <%= text_field_tag(:artist_name, "", placeholder: "Enter artist name", class: "form-control") %>
+ </div>
+ <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
+
+#add collection_select of playlists
+
+
+
+<% if params[:artist_name].present? %>
+  <h1>Search Results</h1>
+  <% results = RSpotify::Artist.search("#{params[:artist_name]}") %>
+   
+  <ol>
+  <% results.each do |artist|%>
+  <li><strong>Artist:<br>
+  <%= link_to  "#{artist.name}", artist_path(artist.id) %>
+  <%= artist.name %></strong></li>
+  <%= artist.id%>
+  <br>
+    <ol>
+      <% artist.albums.uniq.each do |album| %>
+        <li><strong>Album:<br>
+        <%= album.name %></strong></li>
+        <ol>
+          <% album.tracks.uniq.each do |track| %>
+            <li><%= check_box_tag('track', 'no', true) %><%= track.name %></li>
+          <% end %>
+              if 
+        </ol>
+      <% end %>
+    </ol>
+  <% end %>
+  </ol>
+<% end %>
+  
