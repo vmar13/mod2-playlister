@@ -52,3 +52,5 @@ gem 'faker'
 gem 'hirb'
 
 gem 'httparty'
+
+gem 'rspotify'
