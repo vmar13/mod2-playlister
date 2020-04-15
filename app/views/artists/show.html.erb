@@ -10,8 +10,8 @@
 
 <img src="<%= @artist.images[0]["url"] %>" alt="A picture of the beatles" style="width:200px; height:200px;">
 
-<h3>The Beatles Albums</h3>
-    <% @artist.albums.each do |album|%>
+<h3><%= @artist.name %>'s Albums</h3>
+    <% @artist.albums.uniq.each do |album|%>
         <p><%= link_to  "#{album.name}", album_path(album.id) %></p>
         <p><%= album.release_date %></p>
     <% end %>
