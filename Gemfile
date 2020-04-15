@@ -48,3 +48,11 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'faker'
 
 gem 'hirb'
+
+gem 'httparty'
+
+gem 'rack-cors'
+
+gem 'active_model_serializers'
+
+gem 'rspotify'
