@@ -1,7 +1,11 @@
 <h1><%= @playlist.title %></h1>
 
-<% @playlist.tracks.each do |track| %>
-    <p><% track.name %></p>
-<% end %>
+<ul>
+    <% @playlist.tracks.each do |track| %>
+        <li><% track.name %></li> 
+    <% end %>
+</ul>
+
+#add ability to play songs
 
 <%= button_to "ADD SONGS", new_add_song_path, method: :get %>
