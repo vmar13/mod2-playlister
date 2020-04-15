@@ -29,18 +29,6 @@ class AddSongsController < ApplicationController
         @add_song = AddSong.find(params[:id])
         
     end
-  
-
-    # def search
-    #     q = params[:q]
-    #     return unless q.present?
-
-    #     require 'net/http'
-    #     uri = URI.parse("https://api.spotify.com/v1/search?" + { q: q, type: 'track' }.to_query)
-    #     json = Net::HTTP.get(uri)
-
-    #     @results = JSON.parse(json)["tracks"]["items"]
-    # end 
 
     private
 
