@@ -9,19 +9,24 @@
     <%= label_tag(:q, "Search for:") %>
     <%= text_field_tag(:q) %>
     <%= submit_tag("Search") %>
+    
 <% end %>
 
 
 
-<% if @results.present? %>
+
+
+<% if params[:artist_name].present? %>
   <h1>Songs Found</h1>
-  <ul>
-    <% @results.each do |song| %>
-      <li><%= song["name"] %></li>
-    <% end %>
-  </ul>
+  <% RSpotify.authenticate("18278fde81504c75a2b075a4d8fc6c27", "87ef695e70f54494ae373f0e42dc4106")%>
+  <% @results = RSpotify::Artist.search("#{params[:artist_name]}") %>
+  <p><%= @results %></p>
 <% end %>
 
    
 
 <would like to add back button specifying name of playlist>
+
+
+
+

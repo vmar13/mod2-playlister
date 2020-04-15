@@ -1,7 +1,29 @@
-<h1 class="page-header">Add Songs</h1>
+
+<h1 class="page-header">Add Songs Index</h1>
 <%= form_tag add_songs_path, method: "get", html: { class: "form" } do %>
  <div class="form-group col-xs-4">
    <%= text_field_tag(:artist_name, "", placeholder: "Enter artist name", class: "form-control") %>
  </div>
  <%= submit_tag "Search", class: "btn btn-primary" %>
 <% end %>
+
+
+
+
+<% if params[:artist_name].present? %>
+  <h1>Songs Found</h1>
+  <% RSpotify.authenticate("18278fde81504c75a2b075a4d8fc6c27", "87ef695e70f54494ae373f0e42dc4106")%>
+  <% results = RSpotify::Artist.search("#{params[:artist_name]}") %>
+   
+<li><%= r.genres %></li>  <ol>
+  <% results.each do |r|%>
+  <li><%= r.name %></li>
+    <ul>
+      <% r.albums.each do |a| %>
+        <li><%= a.name %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  </ol>
+<% end %>
+  
