@@ -11,18 +11,25 @@
 
 
 <% if params[:artist_name].present? %>
-  <h1>Songs Found</h1>
+  <h1>Search Results</h1>
   <% RSpotify.authenticate("18278fde81504c75a2b075a4d8fc6c27", "87ef695e70f54494ae373f0e42dc4106")%>
   <% results = RSpotify::Artist.search("#{params[:artist_name]}") %>
    
-<li><%= r.genres %></li>  <ol>
-  <% results.each do |r|%>
-  <li><%= r.name %></li>
-    <ul>
-      <% r.albums.each do |a| %>
-        <li><%= a.name %></li>
+  <ol>
+  <% results.each do |artist|%>
+  <li><strong>Artist Name:<br>
+  <%= artist.name %></strong></li>
+    <ol>
+      <% artist.albums.uniq.each do |album| %>
+        <li><strong>Album Name:<br>
+        <%= album.name %></strong></li>
+        <ol>
+          <% album.tracks.uniq.each do |track| %>
+            <li><%= track.name %></li>
+            <% end %>
+        </ol>
       <% end %>
-    </ul>
+    </ol>
   <% end %>
   </ol>
 <% end %>
