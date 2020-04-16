@@ -21,7 +21,7 @@ class AddSongsController < ApplicationController
 
     def create
         add_song = AddSong.new
-        artist = Artist.find_or_create_by(name: params[:artist_name], bio: "Lorem Ipsum")
+        artist = Artist.find_or_create_by(id: params[:artist_id], name: params[:artist_name], bio: "Lorem Ipsum")
         album = Album.find_or_create_by(id: params[:album_id], title: params[:album_name], artist_id: params[:artist_id])
         track = Track.find_or_create_by(id: params[:track_id], name: params[:track_name], album_id: params[:album_id])
         add_song.track_id = params[:track_id]
