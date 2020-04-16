@@ -2,7 +2,7 @@
 
 <%= form_for @add_song do |f| %>
   <%= f.collection_select :playlist_id, Playlist.all, :id, :title %>
-  <%= f.submit 'Select Playlist' %>
+  <%= f.submit 'Add Songs to Playlist' %>
 <% end %>
 <br>
 <br>
@@ -32,7 +32,6 @@
           <% album.tracks.uniq.each do |track| %>
             <li><%= check_box_tag('track', 'no', false) %><%= track.name %></li>
           <% end %>
-              if 
         </ol>
       <% end %>
     </ol>
@@ -40,3 +39,6 @@
   </ol>
 <% end %>
   
+selected_songs = 
+
+<< selected_songs
