@@ -20,9 +20,11 @@ class PlaylistsController < ApplicationController
     end 
 
     def show
+        @playlist = Playlist.find(params[:id])
     end 
 
     def edit
+        @playlist = Playlist.find(params[:id])
     end 
 
     def update
@@ -34,8 +36,9 @@ class PlaylistsController < ApplicationController
         end 
     end 
 
-    def delete
-        playlist.destroy
+    def destroy
+        @playlist = Playlist.find(params[:id])
+        @playlist.destroy
         redirect_to playlists_path
     end 
 

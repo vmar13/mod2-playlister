@@ -3,15 +3,24 @@
 
 <h1><%= @album.name %></h1>
 
+<%# dropdown for choosing a playlist to add songs to %>
+<%= form_for :playlist_id do |f| %>
+  <%= f.collection_select :playlist_id, Playlist.all, :id, :title %>
+  <%= f.submit 'Add Songs to Playlist' %>
+<% end %>
 
-
+<%# Album cover image %>
 <img src="<%= @album.images[0]["url"] %>" alt="Beatles Album Cover", style="width:200px; height:200px;">
 
+<%# list of all songs on this album with song length %>
 <h3>Songs on this Album</h3>
     <ol>
         <% @album.tracks.each do |track|%>
+        
             <li><%= track.name %> | <%=Time.at(track.duration_ms/1000).utc.strftime("%M:%S")%></li>
-            <%= button_to  "Add",   %>
+            <%= track.id%>
+            <%= button_to "Add Song", {:controller => :add_songs,
+      :action => 'create', track_id: "#{track.id}", playlist_id: 41 }, :method => :post %>
         <% end %>
     </ol>
 
