@@ -4,7 +4,8 @@ class AddSongsController < ApplicationController
         # !params[:artist_name].empty?
         #   @add_song = RSpotify::Artist.search(params[:artist_name])
         # # else
-          # redirect_to add_song_path()
+        # redirect_to add_song_path()
+        @playlist_id = params[:playlist_id]
         @add_song = AddSong.new
     end
 
@@ -20,12 +21,14 @@ class AddSongsController < ApplicationController
     end 
 
     def create
+        byebug
         add_song = AddSong.new
         artist = Artist.find_or_create_by(id: params[:artist_id], name: params[:artist_name], bio: "Lorem Ipsum")
         album = Album.find_or_create_by(id: params[:album_id], title: params[:album_name], artist_id: params[:artist_id])
         track = Track.find_or_create_by(id: params[:track_id], name: params[:track_name], album_id: params[:album_id])
         add_song.track_id = params[:track_id]
         add_song.playlist_id = params[:playlist_id]
+        
         add_song.save
         redirect_to playlist_path(params[:playlist_id])
     end 

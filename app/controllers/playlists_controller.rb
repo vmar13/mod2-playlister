@@ -1,6 +1,11 @@
 class PlaylistsController < ApplicationController
     before_action :find_playlist, only: [:show, :edit, :update, :delete]
 
+    def home
+        @playlist = Playlist.new
+        render :home
+    end
+
     def index
         @playlists = Playlist.all 
     end 
@@ -10,13 +15,8 @@ class PlaylistsController < ApplicationController
     end 
 
     def create
-        playlist = Playlist.create(playlist_params)
-        if playlist.valid?
-            redirect_to playlist_path(playlist)
-        else
-            flash[:errors] = playlist.errors.full_messages
-            redirect_to new_playlist_path
-        end 
+        @playlist = Playlist.create!(playlist_params)
+        redirect_to playlist_path(@playlist)
     end 
 
     def show
@@ -45,7 +45,7 @@ class PlaylistsController < ApplicationController
     private
 
     def playlist_params
-        params.require(:playlist).permit(:title, :username)
+        params.require(:playlist).permit(:title)
     end 
 
     def find_playlist
