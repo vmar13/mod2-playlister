@@ -31,7 +31,7 @@
     <ol>
       <% artist.albums.uniq.each do |album| %>
         <li><strong>Album:<br>
-        <%= album.name %></strong></li>
+        <%= link_to  "#{album.name}", album_path(album.id) %></strong></li>
         <ol>
           <% album.tracks.uniq.each do |track| %>
             <li><%= check_box_tag('track', 'no', false) %><%= track.name %></li>
