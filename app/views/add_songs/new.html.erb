@@ -1,40 +1,13 @@
-<h1 class="page-header">Add Songs Index - Homepage?</h1>
+<h1 class="page-header">Add Songs - New</h1>
 
 <%= form_for @add_song do |f| %>
-  <%= f.collection_select :playlist_id, Playlist.all, :id, :title %>
-  <%= f.submit 'Add Songs to Playlist' %>
-<% end %>
-
-<%= form_tag add_songs_path, method: "get", html: { class: "form" } do %>
-  <div class="form-group col-xs-4">
-    <%= text_field_tag(:artist_name, "", placeholder: "Enter artist name", class: "form-control") %>
-  </div>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
-  <% end %>
-
- <% if params[:artist_name].present? %>
-  <h1>Search Results</h1>
-  <% results = RSpotify::Artist.search("#{params[:artist_name]}") %>
-
-  <ol>
-  <% results.each do |artist|%>
-  <li><strong>Artist:<br>
-  <%= link_to "#{artist.name}", artist_path(artist.id) %></strong></li>
-
+  <%= f.label 'Playlist:' %>
+  <%= f.collection_select :playlist_id, Playlist.all, :id, :title %><br>
+  <%= f.label 'Song:' %>
+  <%= f.collection_select :track_id, Track.all, :id, :name %><br>
   <br>
-    <ol>
-      <% artist.albums.uniq.each do |album| %>
-        <li><strong>Album:<br>
-        <%= album.name %></strong></li>
-        <ol>
-          <% album.tracks.uniq.each do |track| %>
-            <li><%= track.name %></li>
-          <% end %>
-        </ol>
-      <% end %>
-    </ol>
-  <% end %>
-  </ol>
+  <%= f.submit 'Add Song to Playlist' %>
 <% end %>
-
 <br>
+
+
