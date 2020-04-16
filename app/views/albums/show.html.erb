@@ -16,11 +16,11 @@
 <h3>Songs on this Album</h3>
     <ol>
         <% @album.tracks.each do |track|%>
+        
             <li><%= track.name %> | <%=Time.at(track.duration_ms/1000).utc.strftime("%M:%S")%></li>
-            <li><%= track.preview_url %></li>
-            <audio src="<%= track.preview_url %>" controls></audio>
-            <% track.id%>
-            
+            <%= track.id%>
+            <%= button_to "Add Song", {:controller => :add_songs,
+      :action => 'create', track_id: "#{track.id}", playlist_id: 41 }, :method => :post %>
         <% end %>
     </ol>
 

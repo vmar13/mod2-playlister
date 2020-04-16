@@ -20,14 +20,20 @@ class AddSongsController < ApplicationController
     end 
 
     def create
-        add_song = AddSong.create(add_song_params)
-        redirect_to playlist_path(add_song.playlist)
+        add_song = AddSong.new
+        Artist.find_or_create_by()
+        Album.find_or_create_by()
+        Track.find_or_create_by(id: params[:track_id])
+        add_song.track_id = params[:track_id]
+        add_song.playlist_id = params[:playlist_id]
+        byebug
+        add_song.save
+        redirect_to playlist_path(params[:playlist_id])
     end 
 
 
     def show 
         @add_song = AddSong.find(params[:id])
-        
     end
 
     private
