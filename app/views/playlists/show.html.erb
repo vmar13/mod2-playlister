@@ -13,8 +13,9 @@
 <%# editing this playlist %>
 <%= button_to "Edit This Playlist", {:controller => :playlists,
       :action => 'edit', :id => @playlist.id }, :method => :get %>
-
-
-#add ability to play songs
-
+<%# button to add songs to this playlist %>
 <%= button_to "ADD SONGS", add_songs_path, method: :get %>
+
+<%# button to my playlists %>
+<%= button_to "My Playlists", playlists_path, method: :get %>
+#add ability to play songs
