@@ -1,5 +1,9 @@
 <h1 class="page-header">Add Songs Index - Homepage?</h1>
 
+<%# Link to send user to their playlists index %>
+<%= link_to  "My Playlists", playlists_path %>
+
+<%# dropdown for choosing a playlist to add songs to %>
 <%= form_for @add_song do |f| %>
   <%= f.collection_select :playlist_id, Playlist.all, :id, :title %>
   <%= f.submit 'Add Songs to Playlist' %>

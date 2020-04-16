@@ -6,6 +6,11 @@
     <% end %>
 </ul>
 
+<%# deleting this playlist %>
+<%= button_to "Delete This Playlist", {:controller => :playlists,
+      :action => 'destroy', :id => @playlist.id }, :method => :delete %>
+
+
 #add ability to play songs
 
 <%= button_to "ADD SONGS", add_songs_path, method: :get %>
