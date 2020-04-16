@@ -4,8 +4,8 @@
 <h1><%= @album.name %></h1>
 
 <%# dropdown for choosing a playlist to add songs to %>
-<%= form_for :playlist_id do |f| %>
-  <%= f.collection_select :playlist_id, Playlist.all, :id, :title %>
+<%= form_for @playlist_id do |f| %>
+  <%= f.collection_select @playlist_id, Playlist.all, :id, :title %>
   <%= f.submit 'Add Songs to Playlist' %>
 <% end %>
 
@@ -18,9 +18,8 @@
         <% @album.tracks.each do |track|%>
         
             <li><%= track.name %> | <%=Time.at(track.duration_ms/1000).utc.strftime("%M:%S")%></li>
-            <%= track.id%>
             <%= button_to "Add Song", {:controller => :add_songs,
-      :action => 'create', track_id: "#{track.id}", playlist_id: 41 }, :method => :post %>
+      :action => 'create', :track_id => track.id, :album_id => track.album.id, :artist_id => track.artists[0].id, :artist_name => track.artists[0].name, :album_name => track.album.name, :track_name => track.name, :playlist_id => @playlist_id }, :method => :post %>
         <% end %>
     </ol>
 

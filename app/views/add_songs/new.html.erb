@@ -9,5 +9,38 @@
   <%= f.submit 'Add Song to Playlist' %>
 <% end %>
 <br>
+<%= form_tag add_songs_new_path, method: "get", html: { class: "form" } do %>
+  <div class="form-group col-xs-4">
+    <%= text_field_tag(:artist_name, "", placeholder: "Enter artist name", class: "form-control") %>
+  </div>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+  <% end %>
+
+ <% if params[:artist_name].present? %>
+  <h1>Search Results</h1>
+  <% results = RSpotify::Artist.search("#{params[:artist_name]}") %>
+
+  <ol>
+  <% results.each do |artist|%>
+  <li><strong>Artist:<br>
+  <%= link_to "#{artist.name}", artist_path(artist.id) %></strong></li>
+
+  <br>
+    <ol>
+      <% artist.albums.uniq.each do |album| %>
+        <li><strong>Album:<br>
+        <%= album.name %></strong></li>
+        <ol>
+          <% album.tracks.uniq.each do |track| %>
+            <li><%= track.name %></li>
+          <% end %>
+        </ol>
+      <% end %>
+    </ol>
+  <% end %>
+  </ol>
+<% end %>
+
+
 
 
