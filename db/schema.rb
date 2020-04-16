@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_14_173523) do
+ActiveRecord::Schema.define(version: 2020_04_16_154135) do
 
   create_table "add_songs", force: :cascade do |t|
     t.integer "playlist_id"
-    t.integer "track_id"
+    t.string "track_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 2020_04_14_173523) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "tracks", force: :cascade do |t|
+  create_table "tracks", id: :string, force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

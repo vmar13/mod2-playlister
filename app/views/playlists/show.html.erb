@@ -2,10 +2,20 @@
 
 <ul>
     <% @playlist.tracks.each do |track| %>
-        <li><% track.name %></li> 
+        <li><%= track.name %></li> 
     <% end %>
 </ul>
 
-#add ability to play songs
+<%# deleting this playlist %>
+<%= button_to "Delete This Playlist", {:controller => :playlists,
+      :action => 'destroy', :id => @playlist.id }, :method => :delete %>
 
+<%# editing this playlist %>
+<%= button_to "Edit This Playlist", {:controller => :playlists,
+      :action => 'edit', :id => @playlist.id }, :method => :get %>
+<%# button to add songs to this playlist %>
 <%= button_to "ADD SONGS", add_songs_path, method: :get %>
+
+<%# button to my playlists %>
+<%= button_to "My Playlists", playlists_path, method: :get %>
+#add ability to play songs
