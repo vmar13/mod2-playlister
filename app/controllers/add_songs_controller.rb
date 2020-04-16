@@ -21,7 +21,7 @@ class AddSongsController < ApplicationController
 
     def create
         add_song = AddSong.create(add_song_params)
-        redirect_to add_song_path(add_song)
+        redirect_to playlist_path(add_song.playlist)
     end 
 
 
