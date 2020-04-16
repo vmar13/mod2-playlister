@@ -35,8 +35,19 @@
         <ol>
           <% album.tracks.uniq.each do |track| %>
             <li><%= check_box_tag('track', 'no', false) %><%= track.name %></li>
-            <%= button_to "Add Song", {:controller => :add_songs,
-      :action => 'create', :track_id => track.id, :album_id => track.album.id, :artist_id => track.artists[0].id, :artist_name => track.artists[0].name, :album_name => track.album.name, :track_name => track.name, :playlist_id => 41 }, :method => :post %>
+            <%= button_to "Add Song", 
+            {
+              :controller => :add_songs,
+      :action => 'create',
+       :track_id => track.id,
+        :album_id => track.album.id,
+         :artist_id => track.artists[0].id,
+          :artist_name => track.artists[0].name,
+           :album_name => track.album.name,
+            :track_name => track.name, 
+            :playlist_id => @playlist_id
+             }, 
+             :method => :post %>
           <% end %>
         </ol>
       <% end %>

@@ -7,6 +7,7 @@
 <%= form_for :playlist_id do |f| %>
   <%= f.collection_select :playlist_id, Playlist.all, :id, :title %>
   <%= f.submit 'Add Songs to Playlist' %>
+  <% @playlist_id =%>
 <% end %>
 
 <%# Album cover image %>
@@ -15,11 +16,22 @@
 <%# list of all songs on this album with song length %>
 <h3>Songs on this Album</h3>
     <ol>
-        <% @album.tracks.each do |track|%>
+        <% @album.tracks.each do |track| %>
         
             <li><%= track.name %> | <%=Time.at(track.duration_ms/1000).utc.strftime("%M:%S")%></li>
-            <%= button_to "Add Song", {:controller => :add_songs,
-      :action => 'create', :track_id => track.id, :album_id => track.album.id, :artist_id => track.artists[0].id, :artist_name => track.artists[0].name, :album_name => track.album.name, :track_name => track.name, :playlist_id => 41 }, :method => :post %>
+
+            <%= button_to "Add Song", 
+            {
+              :controller => :add_songs,
+              :action => 'create',
+              :track_id => track.id,
+              :album_id => track.album.id,
+              :artist_id => track.artists[0].id,
+              :artist_name => track.artists[0].name,
+              :album_name => track.album.name, :track_name => track.name,
+              :playlist_id => 41 },
+              
+              :method => :post %>
         <% end %>
     </ol>
 

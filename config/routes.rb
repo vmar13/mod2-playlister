@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   resources :tracks
   resources :playlists
   resources :users
- 
+
+
+ get '/', to: 'playlists#home'
   get '/add_songs', to: 'add_songs#index'
   get '/add_songs/new', to: 'add_songs#new'
   post '/add_songs', to: 'add_songs#create'

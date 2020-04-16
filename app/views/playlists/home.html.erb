@@ -1,0 +1,11 @@
+<h1>Playlists Home</h1>
+
+<h2><%= link_to  "Edit My Playlists", playlists_path %></h2>
+
+
+<h2>Make a new Playlist:</h2>
+<%= form_for @playlist do |f| %>
+    <%= f.label :title, "Playlist Name:" %>
+    <%= f.text_field :title %>
+    <%= f.submit "Submit", disable_with: 'Submiting...' %>
+<% end%>
