@@ -10,6 +10,10 @@
 <%= button_to "Delete This Playlist", {:controller => :playlists,
       :action => 'destroy', :id => @playlist.id }, :method => :delete %>
 
+<%# editing this playlist %>
+<%= button_to "Edit This Playlist", {:controller => :playlists,
+      :action => 'edit', :id => @playlist.id }, :method => :get %>
+
 
 #add ability to play songs
 
