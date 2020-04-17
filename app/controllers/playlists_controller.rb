@@ -25,6 +25,7 @@ class PlaylistsController < ApplicationController
 
     def edit
         @playlist = Playlist.find(params[:id])
+        
     end 
 
     def update
