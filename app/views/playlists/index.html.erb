@@ -1,23 +1,17 @@
 <h1>My Playlists</h1>
 <br>
-<br>
 
+<%= button_to "Create A New Playlist", new_playlist_path, method: :get, class:"btn btn-outline-light", type:"button" %>
+<br>
+<br>
 
 <div class="container">
 <ul class="list-group">
     <% @playlists.each do |playlist| %>
-    
         <%= link_to playlist.title, playlist_path(playlist), class:"list-group-item list-group-item-action"%>
-        
     <% end %>
 </ul>
 </div>
 
-
-
-
-<%# Button to get to new playlist form %>
-
-<%= button_to "Create A New Playlist", new_playlist_path, method: :get, class:"btn btn-outline-success", type:"button" %>
 
 
