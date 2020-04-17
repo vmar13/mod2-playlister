@@ -37,6 +37,13 @@ class AddSongsController < ApplicationController
         @add_song = AddSong.find(params[:id])
     end
 
+    def destroy
+        @add_song = AddSong.find(params[:id])
+        @track.destroy
+        redirect_to playlist_path()
+    end
+    end
+
     private
 
     def add_song_params
