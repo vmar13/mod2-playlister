@@ -3,10 +3,14 @@
 <!-- h1 class="jumbotron">Playlister</h1 -->
 <!-- /div -->
 
-<h1>Playlister</h1>
-<br>
-<br>
 
+
+<div class="container">
+    <div class="jumbotron">
+
+    <h1>Playlister</h1>
+<br>
+<br>
 
     <h3>Make a New Playlist</h3>
     <%= form_for @playlist do |f| %>
@@ -16,6 +20,7 @@
     <% end%>
     <br>
     <p><%= link_to  "Edit My Playlists", playlists_path %></p><br>
-
+    </div>
+</div>
 
   
