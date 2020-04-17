@@ -8,7 +8,7 @@
   <%= f.label 'Song:' %>
   <%= f.collection_select :track_id, Track.all, :id, :name %><br>
   <br>
-  <%= f.submit 'Add Song to Playlist' %>
+  <%= f.submit 'Add Song to Playlist', class: "btn-btn-primary" %>
 <% end %>
 <br>
 <%= form_tag add_songs_new_path, method: "get", html: { class: "form" } do %>
@@ -24,27 +24,31 @@
   <% results = RSpotify::Artist.search("#{params[:artist_name]}") %>
 
   <ol class="list-group">
-  <% results.each do |artist|%>
+  <% results.take(3).each do |artist|%>
   <strong>Artist:<br>
   <%= link_to "#{artist.name}", artist_path(artist.id), class:"artist-header" %></strong>
 
   <br>
     <ol>
-      <% artist.albums.uniq.each do |album| %>
+      <% artist.albums.take(3).uniq.each do |album| %>
         <li><strong>Album:<br>
         <%= link_to "#{album.name}", album_path(album.id), class:"artist-header" %></strong></li><br>
         <ol>
           <% album.tracks.uniq.each do |track| %>
             <li><%= track.name %></li>
               <%= form_for @add_song do |f| %>
-                <%= f.collection_select :playlist_id, Playlist.all, :id, :title %>
-                <%= f.hidden_field :track_id, :value => track.id %>
-                <%= f.hidden_field :album_id, :value => track.album.id %>
-                <%= f.hidden_field :artist_id, :value => track.artists[0].id %>
-                <%= f.hidden_field :artist_name, :value => track.artists[0].name %>
-                <%= f.hidden_field :album_name, :value => track.album.name %>
-                <%= f.hidden_field :track_name, :value => track.name %>
-                <%= f.submit %>
+              <span class="form-group">
+                  <%= f.collection_select:playlist_id, Playlist.all, :id, :title%>
+                  <%= f.hidden_field :track_id, :value => track.id %>
+                  <%= f.hidden_field :album_id, :value => track.album.id %>
+                  <%= f.hidden_field :artist_id, :value => track.artists[0].id %>
+                  <%= f.hidden_field :artist_name, :value => track.artists[0].name %>
+                  <%= f.hidden_field :album_name, :value => track.album.name %>
+                  <%= f.hidden_field :track_name, :value => track.name %>
+                </span>
+                <span class="actions form-group">
+                  <%= f.submit class:"btn btn-outline-secondary" %>
+                </span>  
               <% end %>
         </li><br>
           <% end %>

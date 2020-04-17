@@ -39,14 +39,16 @@ class AddSongsController < ApplicationController
 
     def destroy
         @add_song = AddSong.find(params[:id])
-        @track.destroy
-        redirect_to playlist_path()
+        playlist = @add_song.playlist_id
+        @add_song.destroy
+        redirect_to playlist_path(playlist)
     end
-    end
+    
 
     private
 
     def add_song_params
         params.require(:add_song).permit(:playlist_id, :track_id)
     end 
+
 end 

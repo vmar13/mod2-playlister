@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :tracks
   resources :playlists
   resources :users
+  resources :add_songs
 
 
  get '/', to: 'playlists#home'
