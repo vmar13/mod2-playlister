@@ -9,17 +9,37 @@ h1 {
 }
 
 h1 {
-    font-family: '08-Underground';
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-@font-face {
-    font-family: '08-Underground';
-    src: url('/path-to/font-file.file-extension')
- }
+
 
 body
 {
     background: url('https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80');
     color: white;
-    
+    margin-left: 0px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
 }
+
+.artist-header {
+    color: rgb(141, 100, 24)
+}
+
+.jumbotron{
+    background:rgba(53, 26, 26, 0.651);
+    background-size: 20%;
+    background-repeat: no-repeat;
+    height: 270px;
+    width: 500px;
+}
+
+.list-group-item {
+    background-color: rgb(43, 42, 42);
+    opacity: 0.5;
+    border-radius: 0;
+    color: white;
+    display:inline-block;
+    }
+
+
