@@ -56,3 +56,5 @@ gem 'rack-cors'
 gem 'active_model_serializers'
 
 gem 'rspotify'
+
+gem 'bootstrap', '~> 4.4.1'
