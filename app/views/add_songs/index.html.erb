@@ -37,7 +37,7 @@
                 <%= f.hidden_field :artist_name, :value => track.artists[0].name %>
                 <%= f.hidden_field :album_name, :value => track.album.name %>
                 <%= f.hidden_field :track_name, :value => track.name %>
-                <%= f.submit %>
+                <%= f.submit :class => "btn-btn-primary"%>
               <% end %>
           <% end %>
         </ol>

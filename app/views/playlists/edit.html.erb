@@ -3,9 +3,7 @@
 <ul>
     <% @playlist.tracks.each do |track| %>
         <li><%= track.name %></li>
-        <%= form_for @add_song do |f| %>
-        <%= f.hidden_field :track.add_songs %>
-        <%= f.submit "Delete From Playlist", disable_with: 'Submiting...' %>
-        <% end %>
+        <% @add_song = track.add_songs%>
+        <%= button_to  "Delete This Song", {:controller => :add_songs, :action => 'destroy', :id => @add_song.ids[0]}, :method => :delete %>
     <% end %>
 </ul>
