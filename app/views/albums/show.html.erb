@@ -4,8 +4,8 @@
 <h1><%= @album.name %></h1>
 
 <%# dropdown for choosing a playlist to add songs to %>
-<%= form_for :playlist_id do |f| %>
-  <%= f.collection_select :playlist_id, Playlist.all, :id, :title %>
+<%= form_for @playlist_id do |f| %>
+  <%= f.collection_select @playlist_id, Playlist.all, :id, :title %>
   <%= f.submit 'Add Songs to Playlist' %>
   <% @playlist_id =%>
 <% end %>
