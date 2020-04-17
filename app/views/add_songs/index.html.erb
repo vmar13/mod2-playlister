@@ -23,6 +23,10 @@
   <% results = RSpotify::Artist.search("#{params[:artist_name]}") %>
    
   <ol>
+  <%= form_for @add_song do |f| %>
+  <%= f.collection_select :playlist_id, Playlist.all, :id, :title %>
+  <%= f.submit 'Add Songs to Playlist' %>
+<% end %>
   <% results.each do |artist|%>
   <li><strong>Artist:<br>
   <%= link_to "#{artist.name}", artist_path(artist.id) %></strong></li>
