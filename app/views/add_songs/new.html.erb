@@ -16,27 +16,27 @@
     <label>Find your favorite artist</label><br>
     <%= text_field_tag(:artist_name, "", placeholder: "Enter artist name", class: "form-control") %>
   </div>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
+  <%= submit_tag "Search", class: "btn btn-outline-success" %>
   <% end %>
 
  <% if params[:artist_name].present? %>
   <h1>Search Results</h1>
   <% results = RSpotify::Artist.search("#{params[:artist_name]}") %>
 
-  <ol>
+  <ol class="list-group">
   <% results.each do |artist|%>
-  <li><strong>Artist:<br>
-  <%= link_to "#{artist.name}", artist_path(artist.id) %></strong></li>
+  <strong>Artist:<br>
+  <%= link_to "#{artist.name}", artist_path(artist.id), class:"artist-header" %></strong>
 
   <br>
     <ol>
       <% artist.albums.uniq.each do |album| %>
         <li><strong>Album:<br>
-        <%= album.name %></strong></li><br>
+        <%= link_to "#{album.name}", album_path(album.id), class:"artist-header" %></strong></li><br>
         <ol>
           <% album.tracks.uniq.each do |track| %>
             <li><%= track.name %><%= button_to "Add Song", {:controller => :add_songs,
-            :action => 'create', :track_id => track.id, :album_id => track.album.id, :artist_id => track.artists[0].id, :artist_name => track.artists[0].name, :album_name => track.album.name, :track_name => track.name, :playlist_id => 41 }, :method => :post %>
+            :action => 'create', :track_id => track.id, :album_id => track.album.id, :artist_id => track.artists[0].id, :artist_name => track.artists[0].name, :album_name => track.album.name, :track_name => track.name, :playlist_id => 41 }, :method => :post, class:"btn btn-outline-success", type:"button" %>
         </li><br>
           <% end %>
         </ol>

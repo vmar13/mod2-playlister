@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+
 h1 {
     
     // background-color: rgb(49, 51, 51); 
@@ -10,6 +11,10 @@ h1 {
 
 body
 {
-    background-color: black;
+    background: url('https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80');
     color: white;
+}
+
+.artist-header {
+    color: #1E9C32
 }
