@@ -1,31 +1,50 @@
+
 <h1>Add Songs</h1>
+<br>
 
-# <insert Spotify API search bar here>
-# <need ability to search for songs>
-
-# <how do we create a new add_song without creating with playlist_id and track_id ?>
-
-<%= form_tag add_songs_path, method: :get do %>
-    <%= label_tag(:q, "Search for:") %>
-    <%= text_field_tag(:q) %>
-    <%= submit_tag("Search") %>
-    
+<%= form_for @add_song do |f| %>
+  <%= f.label 'Playlist:' %>
+  <%= f.collection_select :playlist_id, Playlist.all, :id, :title %><br>
+  <%= f.label 'Song:' %>
+  <%= f.collection_select :track_id, Track.all, :id, :name %><br>
+  <br>
+  <%= f.submit 'Add Song to Playlist' %>
 <% end %>
+<br>
+<%= form_tag add_songs_new_path, method: "get", html: { class: "form" } do %>
+  <div class="form-group col-md-4">
+    <label>Find your favorite artist</label><br>
+    <%= text_field_tag(:artist_name, "", placeholder: "Enter artist name", class: "form-control") %>
+  </div>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+  <% end %>
 
+ <% if params[:artist_name].present? %>
+  <h1>Search Results</h1>
+  <% results = RSpotify::Artist.search("#{params[:artist_name]}") %>
 
+  <ol>
+  <% results.each do |artist|%>
+  <li><strong>Artist:<br>
+  <%= link_to "#{artist.name}", artist_path(artist.id) %></strong></li>
 
-
-
-<% if params[:artist_name].present? %>
-  <h1>Songs Found</h1>
-  <% RSpotify.authenticate("18278fde81504c75a2b075a4d8fc6c27", "87ef695e70f54494ae373f0e42dc4106")%>
-  <% @results = RSpotify::Artist.search("#{params[:artist_name]}") %>
-  <p><%= @results %></p>
+  <br>
+    <ol>
+      <% artist.albums.uniq.each do |album| %>
+        <li><strong>Album:<br>
+        <%= album.name %></strong></li><br>
+        <ol>
+          <% album.tracks.uniq.each do |track| %>
+            <li><%= track.name %><%= button_to "Add Song", {:controller => :add_songs,
+            :action => 'create', :track_id => track.id, :album_id => track.album.id, :artist_id => track.artists[0].id, :artist_name => track.artists[0].name, :album_name => track.album.name, :track_name => track.name, :playlist_id => 41 }, :method => :post %>
+        </li><br>
+          <% end %>
+        </ol>
+      <% end %>
+    </ol>
+  <% end %>
+  </ol>
 <% end %>
-
-   
-
-<would like to add back button specifying name of playlist>
 
 
 
