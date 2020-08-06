@@ -9,15 +9,18 @@
     </ul>
 </div>
 <%# deleting this playlist %>
+
+<div class='delete'>
 <%= button_to "Delete This Playlist", {:controller => :playlists,
       :action => 'destroy', :id => @playlist.id },  :method => :delete %>
+</div>
 
 <%# editing this playlist %>
 <%= button_to "Edit This Playlist", {:controller => :playlists,
       :action => 'edit', :id => @playlist.id }, :method => :get %>
 
 <%# button to add songs to this playlist %>
-<%= button_to "ADD SONGS",{:controller => :add_songs, :action => 'new', :playlist_id => @playlist.id},  :method => :get %>
+<%= button_to "Add Songs",{:controller => :add_songs, :action => 'new', :playlist_id => @playlist.id},  :method => :get %>
 
 <%# button to my playlists %>
-<%= button_to "My Playlists", method: :get %>
+<%= button_to "My Playlists", {:controller => :playlists, :action => 'index'}, method: :get %>
