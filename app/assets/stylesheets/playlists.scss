@@ -17,9 +17,11 @@ h1 {
 body
 {
     background: url('https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80');
+    background-color: black;
     color: white;
-    margin-left: 0px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-repeat: no-repeat;
+    background-position: fixed
 }
 
 .artist-header {
@@ -28,6 +30,10 @@ body
 
 .delete {
     margin-left: 1%;
+}
+
+.form-group col-md-4 {
+    margin-left: 10%;
 }
 
 .jumbotron{
@@ -39,6 +45,15 @@ body
     margin: auto;
 }
 
+.search-results-group {
+    // background:rgba(53, 26, 26, 0.651);
+    background:rgba(53, 26, 26, 0.39);
+    width: 40%;
+    margin-top: 5%;
+    margin-left: 30%;
+    border-radius: 5px;
+}
+
 .list-group-item {
     background-color: rgb(43, 42, 42);
     opacity: 0.5;
@@ -47,4 +62,8 @@ body
     display:inline-block;
     }
 
+// .search-results-header {
+//     margin-top: 10%;
+//     margin-left: 30%;
+// }
 
