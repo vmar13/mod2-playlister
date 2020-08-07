@@ -24,16 +24,30 @@ body
     background-position: fixed
 }
 
-.artist-header {
-    color: rgb(141, 100, 24)
+.add-songs-header {
+    margin-top: 1%;
+    margin-left: 3%;
 }
+
+.artist-header {
+    color: rgb(240, 209, 237)
+}
+
+// .btn btn-outline-light{
+//     margin-left: 5px;
+// }
 
 .delete {
     margin-left: 1%;
 }
 
-.form-group col-md-4 {
-    margin-left: 10%;
+.form-control {
+    margin-left: 6%;
+    width: 70%;
+}
+
+.form-control-label {
+    margin-left: 6%;
 }
 
 .jumbotron{
@@ -43,15 +57,6 @@ body
     height: 270px;
     width: 500px;
     margin: auto;
-}
-
-.search-results-group {
-    // background:rgba(53, 26, 26, 0.651);
-    background:rgba(53, 26, 26, 0.39);
-    width: 40%;
-    margin-top: 5%;
-    margin-left: 30%;
-    border-radius: 5px;
 }
 
 .list-group-item {
@@ -67,3 +72,17 @@ body
 //     margin-left: 30%;
 // }
 
+.search-btn {
+    margin-left: 3%;
+}
+
+.search-results-group {
+    // background:rgba(53, 26, 26, 0.39);
+    background:rgba(17, 8, 8, 0.39);
+    width: 40%;
+    margin-top: 2.5%;
+    margin-left: 30%;
+    border-radius: 5px;
+    padding-top: 3%;
+    padding-left: 3.5%;
+}
