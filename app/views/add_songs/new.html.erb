@@ -1,14 +1,14 @@
 
-<h1>Add Songs</h1>
+<h1 class="add-songs-header">Add Songs</h1>
 <br>
 
 <br>
 <%= form_tag add_songs_new_path, method: "get", html: { class: "form" } do %>
   <div class="form-group col-md-4">
-    <label>Find your favorite artist</label><br>
+    <label class="form-control-label">Find your favorite artist:</label><br>
     <%= text_field_tag(:artist_name, "", placeholder: "Enter artist name", class: "form-control") %>
   </div>
-  <%= submit_tag "Search", class:"btn btn-outline-light" %>
+  <%= submit_tag "Search", class:"btn btn-outline-light search-btn" %>
 <% end %>
 
  <% if params[:artist_name].present? %>
