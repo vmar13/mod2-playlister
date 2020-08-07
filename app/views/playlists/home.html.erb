@@ -8,7 +8,8 @@
             <%= f.submit "Submit", disable_with: 'Submiting...', class:"btn btn-outline-light", type:"button"%>
         <% end%>
         <br>
-        <p><%= link_to  "Edit My Playlists", playlists_path %></p><br>
+        <%= button_to "Go to Playlists", {:controller => :playlists, :action => 'index'}, method: :get, class:"btn btn-outline-light playlist-show-side-btns" %>
+
     </div>
 
 
