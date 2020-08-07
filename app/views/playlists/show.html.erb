@@ -7,18 +7,15 @@
         <% end %>
     </ul>
 </div>
-<%# deleting this playlist %>
 
+<div class="playlist-show-btn-group">
+    <%= button_to "Delete This Playlist", {:controller => :playlists,
+        :action => 'destroy', :id => @playlist.id },  :method => :delete, class:"btn btn-outline-light playlist-show-side-btns" %>
 
-<%= button_to "Delete This Playlist", {:controller => :playlists,
-      :action => 'destroy', :id => @playlist.id },  :method => :delete, class:"btn btn-outline-light playlist-show-side-btns" %>
+    <%= button_to "Edit This Playlist", {:controller => :playlists,
+        :action => 'edit', :id => @playlist.id }, :method => :get, class:"btn btn-outline-light playlist-show-side-btns" %>
 
-<%# editing this playlist %>
-<%= button_to "Edit This Playlist", {:controller => :playlists,
-      :action => 'edit', :id => @playlist.id }, :method => :get, class:"btn btn-outline-light playlist-show-side-btns" %>
+    <%= button_to "Add Songs",{:controller => :add_songs, :action => 'new', :playlist_id => @playlist.id},  :method => :get, class:"btn btn-outline-light playlist-show-side-btns" %>
 
-<%# button to add songs to this playlist %>
-<%= button_to "Add Songs",{:controller => :add_songs, :action => 'new', :playlist_id => @playlist.id},  :method => :get, class:"btn btn-outline-light playlist-show-side-btns" %>
-
-<%# button to my playlists %>
-<%= button_to "My Playlists", {:controller => :playlists, :action => 'index'}, method: :get, class:"btn btn-outline-light playlist-show-side-btns" %>
+    <%= button_to "My Playlists", {:controller => :playlists, :action => 'index'}, method: :get, class:"btn btn-outline-light playlist-show-side-btns" %>
+</div>
