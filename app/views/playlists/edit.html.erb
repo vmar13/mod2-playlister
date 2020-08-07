@@ -1,9 +1,11 @@
-<h1><%= @playlist.title %></h1>
+<div class="edit-playlist-container">
+    <h1><%= @playlist.title %></h1>
 
-<ul>
-    <% @playlist.tracks.each do |track| %>
-        <li><%= track.name %></li>
-        <% @add_song = track.add_songs%>
-        <%= button_to  "Delete This Song", {:controller => :add_songs, :action => 'destroy', :id => @add_song.ids[0]}, :method => :delete %>
-    <% end %>
-</ul>
+    <ul>
+        <% @playlist.tracks.each do |track| %>
+            <li class="track-name"><%= track.name %></li>
+            <% @add_song = track.add_songs%>
+            <%= button_to  "Delete", {:controller => :add_songs, :action => 'destroy', :id => @add_song.ids[0]}, :method => :delete, class:"delete-song" %>
+        <% end %>
+    </ul>
+</div>
