@@ -12,8 +12,6 @@ h1 {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-
-
 body
 {
     background: url('https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80');
@@ -25,17 +23,17 @@ body
 }
 
 .add-songs-header {
-    margin-top: 1%;
-    margin-left: 3%;
+    margin-top: 1.5%;
+    margin-left: 2%;
 }
 
 .artist-header {
     color: rgb(240, 209, 237)
 }
 
-// .btn btn-outline-light{
-//     margin-left: 5px;
-// }
+.create-new-playlist-btn {
+    margin-left: 2%;
+}
 
 .delete {
     margin-left: 1%;
@@ -69,12 +67,18 @@ body
 }
 
 .list-group-item {
-    background-color: rgb(43, 42, 42);
+    background-color:rgba(17, 8, 8, 0.911);
     opacity: 0.5;
     border-radius: 0;
     color: white;
     display:inline-block;
-    }
+    width: 50%;
+    margin: auto;
+}
+
+// .playlists-index-container {
+//     width: 70%;
+// }
 
 .playlist-show {
     background:rgba(53, 26, 26, 0.651);
@@ -83,6 +87,10 @@ body
     margin: auto;
     margin-top: 6.5%;
     padding: 5% 5% 5% 5%;
+}
+
+.playlist-show-btn-group {
+    margin-top: -17%;
 }
 
 .playlist-show-side-btns {
