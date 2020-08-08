@@ -1,0 +1,9 @@
+    <div class="jumbotron"> 
+        <h3>Make a New Playlist</h3>
+        <%= form_for @playlist do |f| %> 
+            <%= f.label :title, "Playlist Name:" %>
+            <%= f.text_field :title %>
+            <%= f.submit "Submit", disable_with: 'Submiting...', class:"btn btn-outline-light", type:"button"%>
+        <% end%>
+        <br>
+    </div>
