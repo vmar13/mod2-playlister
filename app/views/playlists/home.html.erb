@@ -1,16 +1,10 @@
-<h1>Playlister</h1>
+<div class="logo-background">
+<h1 class="logo">Playlister</h1>
 <br>
-    <div class="jumbotron">
-        <h3>Make a New Playlist</h3>
-        <%= form_for @playlist do |f| %>
-            <%= f.label :title, "Playlist Name:" %>
-            <%= f.text_field :title %>
-            <%= f.submit "Submit", disable_with: 'Submiting...', class:"btn btn-outline-light", type:"button"%>
-        <% end%>
-        <br>
-        <%= button_to "Go to Playlists", {:controller => :playlists, :action => 'index'}, method: :get, class:"btn btn-outline-light playlist-show-side-btns" %>
 
-    </div>
+        <%= button_to "Go to Playlists", {:controller => :playlists, :action => 'index'}, method: :get, class:"btn btn-outline-light homepage-btn" %>
+</div>
+  
 
 
   
