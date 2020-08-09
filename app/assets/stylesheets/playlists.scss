@@ -22,6 +22,10 @@ body
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
+.add-songs-back-btn {
+    margin-left: 3%;
+}
+
 .add-songs-header {
     margin-top: 1.5%;
     margin-left: 2%;
@@ -31,8 +35,33 @@ body
     color: rgb(240, 209, 237)
 }
 
+.artist-image {
+    margin-top: 4%;
+}
+
+.artist-name { 
+    margin-top: 3%;
+}
+
+.artist-show-container {
+    margin: auto;
+    background:rgba(53, 26, 26, 0.651);
+    width: 500px;
+    border-radius: 5px;
+    padding: 3% 0 5% 5%;
+}
+
 .create-new-playlist-btn {
     margin-left: 2%;
+}
+
+.create-playlist-form {
+    background:rgba(53, 26, 26, 0.651);
+    width: 500px;
+    border-radius: 5px;
+    margin: auto;
+    margin-top: 6.5%;
+    padding: 5% 0 5% 5%;
 }
 
 .delete {
@@ -49,12 +78,18 @@ body
 }
 
 .form-control {
-    margin-left: 6%;
     width: 70%;
+    margin-top: 1.5%;
+    margin-left: 4.5%;
 }
 
 .form-control-label {
-    margin-left: 6%;
+    margin-top: 1.5%;
+    margin-left: 4.5%;
+}
+
+.genres-list {
+    margin-bottom: 2%;
 }
 
 .homepage-btn {
@@ -99,9 +134,10 @@ body
     margin: auto;
 }
 
-// .playlists-index-container {
-//     width: 70%;
-// }
+.playlist-new-back-btn {
+    margin-top: 16.5%;
+    margin-left: 2.5%;
+}
 
 .playlist-show {
     background:rgba(53, 26, 26, 0.651);

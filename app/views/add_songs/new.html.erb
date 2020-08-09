@@ -8,7 +8,7 @@
     <label class="form-control-label">Find your favorite artist:</label><br>
     <%= text_field_tag(:artist_name, "", placeholder: "Enter artist name", class: "form-control") %>
   </div>
-  <%= submit_tag "Search", class:"btn btn-outline-light search-btn" %>
+  <%= submit_tag "Search", class:"btn btn-outline-light search-btn form-control-btn" %>
 <% end %>
 
  <% if params[:artist_name].present? %>
@@ -54,7 +54,7 @@
 
 <br/>
 
-<%= button_to "Back to Playlists", {:controller => :playlists, :action => 'index'}, method: :get, class:"btn btn-outline-light playlist-show-side-btns" %>
+<%= button_to "Back to Playlists", {:controller => :playlists, :action => 'index'}, method: :get, class:"btn btn-outline-light add-songs-back-btn" %>
 
 
 

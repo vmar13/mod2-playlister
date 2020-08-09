@@ -4,13 +4,19 @@
     <% end %>
 <% end %>
 
-<h1>Create a playlist</h1>
 
+<div class="create-playlist-form">
+<h1 class="add-songs-header">Create a Playlist</h1>
+<br/>
 <%= form_for @playlist do |f| %>
     <%= f.label :title, 'Title:' %>
     <%= f.text_field :title %><br>
     <br>
-    <%= f.submit %>    
+    <%= f.submit :Submit, class:"btn btn-outline-light" %>    
 <% end %>
+</div>
+
+<%= button_to "Back to Playlists", {:controller => :playlists, :action => 'index'}, method: :get, class:"btn btn-outline-light playlist-new-back-btn" %>
+
 
 

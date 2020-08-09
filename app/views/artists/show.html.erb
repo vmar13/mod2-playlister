@@ -1,17 +1,20 @@
-<p>This is the Artist Show Page</p>
+<%= link_to "Back to Add Songs", add_songs_path %>
 
-<%= link_to  "Back to Add Songs", add_songs_path %>
-
+<div class="artist-show-container">
 <h1><%= @artist.name %></h1>
 
-<% @artist.genres.each do |genre| %>
-    <p><%= genre %> </p>
-<% end %>
+<div class="genres-list">
+    <h4>Genres</h4>
+    <% @artist.genres.each do |genre| %>
+        <li><%= genre %> </li>
+    <% end %>
+</div>
 
-<img src="<%= @artist.images[0]["url"] %>" alt="A picture of the beatles" style="width:200px; height:200px;">
+<img src="<%= @artist.images[0]['url'] %>" alt="artist image" style="width:200px; height:200px;" class="artist-image">
 
-<h3><%= @artist.name %>'s Albums</h3>
+<h3 class="artist-name"><%= @artist.name %>'s Albums</h3>
     <% @artist.albums.uniq.each do |album|%>
-        <p><%= link_to  "#{album.name}", album_path(album.id) %></p>
+        <p><%= link_to "#{album.name}", album_path(album.id) %></p>
         <p><%= album.release_date %></p>
     <% end %>
+</div>
