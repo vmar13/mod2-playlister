@@ -1,24 +1,15 @@
-# README
+# Playlister
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A mini Spotify clone for creating playlists of your favorite tracks. See the video demo: https://youtu.be/nOFcukQUvN8
 
-Things you may want to cover:
+*Developed using Ruby on Rails, SQLite3, Spotify API, HTML, CSS, and Bootstrap*
 
-* Ruby version
 
-* System dependencies
+## Getting Started
 
-* Configuration
+1. Clone down and cd into this repo
+2. Run "bundle install" to install dependencies
+3. Run "rails db:seed" to seed the database
+4. Run "rails s" to start the server
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+**NOTE: This was a collaborative project built during the Flatiron School Software Engineering program. You can find the original repo here: https://github.com/MisterRK/mod2-playlister. Post-graduation, I forked the repo to develop the application further.**
