@@ -13,3 +13,6 @@ A mini Spotify clone for creating playlists of your favorite tracks. See the vid
 4. Run "rails s" to start the server
 
 **NOTE: This was a collaborative project built during the Flatiron School Software Engineering program. You can find the original repo here: https://github.com/MisterRK/mod2-playlister. Post-graduation, I forked the repo to develop the application further.**
+
+
+

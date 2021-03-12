@@ -1,20 +1,10 @@
 class AddSongsController < ApplicationController
 
     def index
-        # !params[:artist_name].empty?
-        #   @add_song = RSpotify::Artist.search(params[:artist_name])
-        # # else
-        # redirect_to add_song_path()
         @playlist_id = params[:playlist_id]
         @add_song = AddSong.new
     end
 
-
-
-    # def index
-    #     @add_songs = AddSong.all 
-    # end 
-    
     def new
         @add_song = AddSong.new
         
