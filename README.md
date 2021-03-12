@@ -9,8 +9,10 @@ A mini Spotify clone for creating playlists of your favorite tracks. See the vid
 
 1. Clone down and cd into this repo
 2. Run "bundle install" to install dependencies
-3. Run "rails db:seed" to seed the database
-4. Run "rails s" to start the server
+3. Run "rake db:create"
+4. Run "rake db:migrate"
+5. Run "rails db:seed" to seed the database
+6. Run "rails s" to start the server
 
 **NOTE: This was a collaborative project built during the Flatiron School Software Engineering program. You can find the original repo here: https://github.com/MisterRK/mod2-playlister. Post-graduation, I forked the repo to develop the application further.**
 
