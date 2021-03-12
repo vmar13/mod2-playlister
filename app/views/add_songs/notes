@@ -1,8 +1,0 @@
-# <%= form_for @add_song do |f| %>
-#   <%= f.label 'Playlist:' %>
-#   <%= f.collection_select :playlist_id, Playlist.all, :id, :title %><br>
-#   <%= f.label 'Song:' %>
-#   <%= f.collection_select :track_id, Track.all, :id, :name %><br>
-#   <br>
-#   <%= f.submit 'Add Song to Playlist', class: "btn-btn-primary" %>
-# <% end %>
