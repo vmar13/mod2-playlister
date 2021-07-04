@@ -58,3 +58,9 @@ gem 'active_model_serializers'
 gem 'rspotify'
 
 gem 'bootstrap', '~> 4.4.1'
+
+gem 'lograge'
+
+gem 'lograge-sql'
+
+gem 'ddtrace', require: 'ddtrace/auto_instrument'
